@@ -8,6 +8,7 @@ import PlusIcon from "./assets/icons/plus-regular.svg?react"
 import SpinnerIcon from "./assets/icons/spinner.svg?react"
 import XIcon from "./assets/icons/x-regular.svg?react"
 import Icon from "./components/icon";
+import Badge from "./components/badge";
 
 export default function App() {
 
@@ -30,6 +31,11 @@ export default function App() {
         <Icon svg={PlusIcon} />
         <Icon svg={SpinnerIcon} animate />
         <Icon svg={XIcon} />
+      </div>
+
+      <div className="flex gap-1 items-center justify-center">
+        <Badge variant={"secondary"}> 5</Badge>
+        <Badge variant={"primary"}> 2 de 5</Badge>
       </div>
     </div>
   )
