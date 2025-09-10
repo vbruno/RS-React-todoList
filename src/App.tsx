@@ -10,11 +10,12 @@ import XIcon from "./assets/icons/x-regular.svg?react"
 import Icon from "./components/icon";
 import Badge from "./components/badge";
 import Button from "./components/button";
+import IconButton from "./components/icon-button";
 
 export default function App() {
 
   return (
-    <div className="h-screen grid gap-3 items-center justify-center">
+    <div className="h-screen grid gap-1 items-center justify-center">
       <div className=" flex flex-col gap-3 items-center justify-center">
         <div className="text-3xl font-bold underline">
           Hello World!
@@ -41,6 +42,12 @@ export default function App() {
 
       <div className="flex gap-1 items-center justify-center" >
         <Button icon={PlusIcon} >Nova tarefa</Button>
+      </div>
+
+      <div className="flex gap-1 items-center justify-center">
+        <IconButton icon={TrashIcon} />
+        <IconButton icon={CheckIcon} variant={"secondary"} />
+        <IconButton icon={PencilIcon} variant={"tertiary"} />
       </div>
     </div>
   )
