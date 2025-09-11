@@ -11,6 +11,7 @@ import Icon from "./components/icon";
 import Badge from "./components/badge";
 import Button from "./components/button";
 import IconButton from "./components/icon-button";
+import InputText from "./components/inputText";
 
 export default function App() {
 
@@ -48,6 +49,10 @@ export default function App() {
         <IconButton icon={TrashIcon} />
         <IconButton icon={CheckIcon} variant={"secondary"} />
         <IconButton icon={PencilIcon} variant={"tertiary"} />
+      </div>
+
+      <div className="flex gap-1 items-center justify-center">
+        <InputText />
       </div>
     </div>
   )
