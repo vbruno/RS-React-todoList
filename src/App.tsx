@@ -12,6 +12,7 @@ import Badge from "./components/badge";
 import Button from "./components/button";
 import IconButton from "./components/icon-button";
 import InputText from "./components/inputText";
+import InputCheckbox from "./components/inputCheckbox";
 
 export default function App() {
 
@@ -53,6 +54,10 @@ export default function App() {
 
       <div className="flex gap-1 items-center justify-center">
         <InputText />
+      </div>
+
+      <div className="flex gap-1 items-center justify-center">
+        <InputCheckbox />
       </div>
     </div>
   )
