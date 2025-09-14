@@ -13,6 +13,7 @@ import Button from "./components/button";
 import IconButton from "./components/icon-button";
 import InputText from "./components/inputText";
 import InputCheckbox from "./components/inputCheckbox";
+import { Card } from "./components/card";
 
 export default function App() {
 
@@ -58,6 +59,10 @@ export default function App() {
 
       <div className="flex gap-1 items-center justify-center">
         <InputCheckbox />
+      </div>
+
+      <div className="flex gap-1 items-center justify-center">
+        <Card size={"md"}> Ola Mundo!</Card>
       </div>
     </div>
   )
