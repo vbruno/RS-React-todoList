@@ -1,8 +1,8 @@
 import { type VariantProps } from "class-variance-authority";
-import { inputCheckboxVariants } from "../styles/components/inputCheckboxVariants";
 import Icon from "./icon";
 import CheckIcon from "../assets/icons/check-regular.svg?react"
 import { inputCheckboxWrapperVariants } from "../styles/components/inputCheckboxWrapperVariants copy";
+import { inputCheckboxVariants } from "../styles/components/inputCheckboxVariants";
 import { inputCheckboxIconVariants } from "../styles/components/inputCheckboxIconVariants";
 
 interface InputCheckboxProps extends
@@ -10,6 +10,7 @@ interface InputCheckboxProps extends
   Omit<React.ComponentProps<"input">, "size" | "disabled"> { }
 
 export default function InputCheckbox({
+  variant,
   size,
   disabled,
   className,
@@ -19,7 +20,7 @@ export default function InputCheckbox({
     className={inputCheckboxWrapperVariants({ className })}
   >
     <input
-      className={inputCheckboxVariants({ size, disabled })}
+      className={inputCheckboxVariants({ variant, size, disabled })}
       type="checkbox"
       {...props}
     />
