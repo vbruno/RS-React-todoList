@@ -10,7 +10,7 @@ import XIcon from "./assets/icons/x-regular.svg?react"
 import Icon from "./components/icon";
 import Badge from "./components/badge";
 import Button from "./components/button";
-import IconButton from "./components/icon-button";
+import IconButton from "./components/iconButton";
 import InputText from "./components/inputText";
 import InputCheckbox from "./components/inputCheckbox";
 import { Card } from "./components/card";
@@ -55,6 +55,7 @@ export default function App() {
         <IconButton icon={TrashIcon} />
         <IconButton icon={CheckIcon} variant={"secondary"} />
         <IconButton icon={PencilIcon} variant={"tertiary"} />
+        <IconButton icon={PencilIcon} variant={"tertiary"} loading />
       </div>
 
       <div className="flex gap-1 items-center justify-center">
