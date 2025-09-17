@@ -7,7 +7,7 @@ interface TextProps extends VariantProps<typeof cardVariants>,
   as?: keyof React.JSX.IntrinsicElements;
 }
 
-export function Card({ as = "div", size, className, children, ...props }: TextProps) {
+export default function Card({ as = "div", size, className, children, ...props }: TextProps) {
   return React.createElement(
     as,
     {

@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "./icon";
-import { Text } from "./text";
+import Text from "./text";
 import { type VariantProps } from "class-variance-authority";
 import { buttonVariants } from "../styles/components/buttonVariants";
 import { buttonIconVariants } from "../styles/components/buttonIconVariants";
