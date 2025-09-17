@@ -15,11 +15,12 @@ import InputText from "./components/inputText";
 import InputCheckbox from "./components/inputCheckbox";
 import { Card } from "./components/card";
 import { Container } from "./components/container";
+import Skeleton from "./components/skeleton";
 
 export default function App() {
 
   return (
-    <Container>
+    <Container className="space-y-5">
       <div className=" flex flex-col gap-3 items-center justify-center">
         <div className="text-3xl font-bold underline">
           Hello World!
@@ -42,6 +43,8 @@ export default function App() {
       <div className="flex gap-1 items-center justify-center">
         <Badge variant={"secondary"}> 5</Badge>
         <Badge variant={"primary"}> 2 de 5</Badge>
+        <Badge loading >12131</Badge>
+
       </div>
 
       <div className="flex gap-1 items-center justify-center" >
@@ -64,6 +67,12 @@ export default function App() {
 
       <div className="flex gap-1 items-center justify-center">
         <Card size={"md"}> Ola Mundo!</Card>
+      </div>
+
+      <div className="items-center justify-center space-y-5">
+        <Skeleton className="h-6" />
+        <Skeleton className="h-6" />
+        <Skeleton className="h-6 w-96" />
       </div>
     </Container>
   )
