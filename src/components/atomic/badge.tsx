@@ -1,10 +1,10 @@
 import type React from "react";
 import Text from "./text";
 import { cx, type VariantProps } from "class-variance-authority";
-import { badgeVariants } from "../styles/components/badgeVariants";
-import { badgeTextVariants } from "../styles/components/badgeTextVariants";
+import { badgeVariants } from "../../styles/components/badgeVariants";
+import { badgeTextVariants } from "../../styles/components/badgeTextVariants";
 import Skeleton from "./skeleton";
-import { badgeSkeletonVariants } from "../styles/components/badgeSkeletonVariants";
+import { badgeSkeletonVariants } from "../../styles/components/badgeSkeletonVariants";
 
 interface BadgeProps extends
   React.ComponentProps<"div">,

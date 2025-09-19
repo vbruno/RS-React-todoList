@@ -1,6 +1,6 @@
 import { type VariantProps } from "class-variance-authority";
 import React from "react";
-import { skeletonVariants } from "../styles/components/skeletonVariants";
+import { skeletonVariants } from "../../styles/components/skeletonVariants";
 
 interface SkeletonProps extends VariantProps<typeof skeletonVariants>,
   React.ComponentProps<"div"> {

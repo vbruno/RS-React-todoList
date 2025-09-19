@@ -1,9 +1,9 @@
 import { type VariantProps } from "class-variance-authority";
 import Icon from "./icon";
-import CheckIcon from "../assets/icons/check-regular.svg?react"
-import { inputCheckboxWrapperVariants } from "../styles/components/inputCheckboxWrapperVariants copy";
-import { inputCheckboxVariants } from "../styles/components/inputCheckboxVariants";
-import { inputCheckboxIconVariants } from "../styles/components/inputCheckboxIconVariants";
+import CheckIcon from "../../assets/icons/check-regular.svg?react"
+import { inputCheckboxWrapperVariants } from "../../styles/components/inputCheckboxWrapperVariants copy";
+import { inputCheckboxVariants } from "../../styles/components/inputCheckboxVariants";
+import { inputCheckboxIconVariants } from "../../styles/components/inputCheckboxIconVariants";
 import Skeleton from "./skeleton";
 
 interface InputCheckboxProps extends

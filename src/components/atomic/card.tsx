@@ -1,6 +1,6 @@
 import { type VariantProps } from "class-variance-authority";
 import React from "react";
-import { cardVariants } from "../styles/components/cardVariants";
+import { cardVariants } from "../../styles/components/cardVariants";
 
 interface TextProps extends VariantProps<typeof cardVariants>,
   React.ComponentProps<"div"> {
