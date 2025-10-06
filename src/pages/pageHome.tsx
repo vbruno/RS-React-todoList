@@ -1,5 +1,4 @@
 import Container from "../components/atomic/container";
-import TaskItem from "../components/core/taskItem";
 import TaskList from "../components/core/taskList";
 import TaskSummary from "../components/core/taskSummary";
 
