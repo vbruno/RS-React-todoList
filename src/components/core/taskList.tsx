@@ -2,11 +2,11 @@ import Button from "../atomic/button";
 
 import PlusIcon from "../../assets/icons/plus-regular.svg?react"
 import TaskItem from "./taskItem";
-import { useTask } from "../../hooks/useTask";
+import { useTasks } from "../../hooks/useTasks";
 
 export default function TaskList() {
 
-  const { tasks } = useTask();
+  const { tasks } = useTasks();
 
   console.log(tasks);
 
