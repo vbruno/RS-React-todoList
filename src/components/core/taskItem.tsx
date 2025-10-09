@@ -23,7 +23,7 @@ export default function TaskItem({ task }: TaskItemProps) {
   const [isEditing, setIsEditing] = useState(task?.state === TaskState.Creating)
   const [taskTitle, setTaskTitle] = useState(task.title || "")
 
-  const { updateTask } = useTask()
+  const { updateTask, updateTaskStatus } = useTask()
 
   function handleEditTask() {
     setIsEditing(true)
@@ -45,14 +45,20 @@ export default function TaskItem({ task }: TaskItemProps) {
     setIsEditing(false)
   }
 
+  function handleChangeTaskStatus(e: ChangeEvent<HTMLInputElement>) {
+    const checked = e.target.checked
+
+    updateTaskStatus(task.id, checked)
+  }
+
   return (
     <form onSubmit={handleSaveTask}>
       <Card size={"md"} className="flex items-center gap-4">
         {!isEditing ?
           <>
             <InputCheckbox
-              value={task?.concluded?.toString()}
               checked={task?.concluded}
+              onChange={handleChangeTaskStatus}
             />
             <Text className={cx("flex-1", {
               "line-through": task?.concluded,
