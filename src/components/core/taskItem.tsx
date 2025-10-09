@@ -12,6 +12,7 @@ import CheckIcon from "../../assets/icons/check-regular.svg?react"
 import InputText from "../atomic/inputText";
 import { TaskState, type Task } from "../../models/task";
 import { cx } from "class-variance-authority";
+import { useTask } from "../../hooks/useTask";
 
 interface TaskItemProps {
   task: Task
@@ -20,8 +21,9 @@ interface TaskItemProps {
 export default function TaskItem({ task }: TaskItemProps) {
 
   const [isEditing, setIsEditing] = useState(task?.state === TaskState.Creating)
+  const [taskTitle, setTaskTitle] = useState(task.title || "")
 
-  const [taskTitle, setTaskTitle] = useState("")
+  const { updateTask } = useTask()
 
   function handleEditTask() {
     setIsEditing(true)
@@ -38,8 +40,7 @@ export default function TaskItem({ task }: TaskItemProps) {
   function handleSaveTask(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    console.log({ id: task.id, title: taskTitle });
-
+    updateTask(task.id, { title: taskTitle })
 
     setIsEditing(false)
   }
@@ -67,6 +68,7 @@ export default function TaskItem({ task }: TaskItemProps) {
           <>
             <InputText
               className="w-full"
+              value={taskTitle}
               onChange={handleChangeTaskTitle}
               required
               autoFocus />
