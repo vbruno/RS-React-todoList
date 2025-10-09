@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 
 import Card from "../atomic/card";
 import InputCheckbox from "../atomic/inputCheckbox";
@@ -21,6 +21,8 @@ export default function TaskItem({ task }: TaskItemProps) {
 
   const [isEditing, setIsEditing] = useState(task?.state === TaskState.Creating)
 
+  const [taskTitle, setTaskTitle] = useState("")
+
   function handleEditTask() {
     setIsEditing(true)
   }
@@ -29,35 +31,54 @@ export default function TaskItem({ task }: TaskItemProps) {
     setIsEditing(false)
   }
 
+  function handleChangeTaskTitle(e: ChangeEvent<HTMLInputElement>) {
+    setTaskTitle(e.target.value || "")
+  }
+
+  function handleSaveTask(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    console.log({ id: task.id, title: taskTitle });
+
+
+    setIsEditing(false)
+  }
+
   return (
-    <Card size={"md"} className="flex items-center gap-4">
-      {!isEditing ?
-        <>
-          <InputCheckbox
-            value={task?.concluded?.toString()}
-            checked={task?.concluded}
-          />
-          <Text className={cx("flex-1", {
-            "line-through": task?.concluded,
-          })}>{task?.title}</Text>
-          <div className="flex gap-1">
-            <IconButton icon={TrashIcon} variant={"tertiary"} />
-            <IconButton icon={PencilIcon} variant={"tertiary"}
-              onClick={handleEditTask}
+    <form onSubmit={handleSaveTask}>
+      <Card size={"md"} className="flex items-center gap-4">
+        {!isEditing ?
+          <>
+            <InputCheckbox
+              value={task?.concluded?.toString()}
+              checked={task?.concluded}
             />
-          </div>
-        </>
-        :
-        <>
-          <InputText className="w-full" />
-          <div className="flex gap-1">
-            <IconButton icon={XIcon} variant={"secondary"}
-              onClick={handleExitEditTask}
-            />
-            <IconButton icon={CheckIcon} variant={"primary"} />
-          </div>
-        </>
-      }
-    </Card>
+            <Text className={cx("flex-1", {
+              "line-through": task?.concluded,
+            })}>{task?.title}</Text>
+            <div className="flex gap-1">
+              <IconButton icon={TrashIcon} variant={"tertiary"} />
+              <IconButton icon={PencilIcon} variant={"tertiary"}
+                onClick={handleEditTask}
+              />
+            </div>
+          </>
+          :
+          <>
+            <InputText
+              className="w-full"
+              onChange={handleChangeTaskTitle}
+              required
+              autoFocus />
+            <div className="flex gap-1">
+              <IconButton icon={XIcon} variant={"secondary"}
+                onClick={handleExitEditTask}
+              />
+              <IconButton type="submit" icon={CheckIcon} variant={"primary"} />
+            </div>
+          </>
+        }
+      </Card>
+    </form>
   )
 }

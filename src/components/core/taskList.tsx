@@ -4,6 +4,7 @@ import PlusIcon from "../../assets/icons/plus-regular.svg?react"
 import TaskItem from "./taskItem";
 import { useTasks } from "../../hooks/useTasks";
 import { useTask } from "../../hooks/useTask";
+import { TaskState } from "../../models/task";
 
 export default function TaskList() {
 
@@ -23,6 +24,7 @@ export default function TaskList() {
           icon={PlusIcon}
           className="w-full"
           onClick={handleNewTask}
+          disabled={tasks.some((task) => task.state === TaskState.Creating)}
         >Nova Tarefa</Button>
       </section>
       <section className="space-y-2">
