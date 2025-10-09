@@ -23,13 +23,16 @@ export default function TaskItem({ task }: TaskItemProps) {
   const [isEditing, setIsEditing] = useState(task?.state === TaskState.Creating)
   const [taskTitle, setTaskTitle] = useState(task.title || "")
 
-  const { updateTask, updateTaskStatus } = useTask()
+  const { updateTask, updateTaskStatus, deleteTask } = useTask()
 
   function handleEditTask() {
     setIsEditing(true)
   }
 
   function handleExitEditTask() {
+    if (task.state === TaskState.Creating) {
+      deleteTask(task.id)
+    }
     setIsEditing(false)
   }
 
@@ -51,6 +54,10 @@ export default function TaskItem({ task }: TaskItemProps) {
     updateTaskStatus(task.id, checked)
   }
 
+  function handleDeleteTask() {
+    deleteTask(task.id)
+  }
+
   return (
     <form onSubmit={handleSaveTask}>
       <Card size={"md"} className="flex items-center gap-4">
@@ -64,7 +71,9 @@ export default function TaskItem({ task }: TaskItemProps) {
               "line-through": task?.concluded,
             })}>{task?.title}</Text>
             <div className="flex gap-1">
-              <IconButton icon={TrashIcon} variant={"tertiary"} />
+              <IconButton icon={TrashIcon} variant={"tertiary"}
+                onClick={handleDeleteTask}
+              />
               <IconButton icon={PencilIcon} variant={"tertiary"}
                 onClick={handleEditTask}
               />
